@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Masai Calculator</h1>
+
+    <div id="parent">
+      <div id="input"></div>
+      <button id="done">1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+      <button>7</button>
+      <button>8</button>
+      <button>9</button>
+      <button>0</button>
+    </div>
+    <div id="cont">
+      <button>+</button>
+      <button>-</button>
+      <button>*</button>
+      <button>/</button>
+    </div>
+
+    <button id="Equal">=</button>
+  </body>
+  <script>
+    let input = document.getElementById("input");
+    let button = document.querySelectorAll("#parent>button");
+    let Equal = document.getElementById("Equal");
+    let operator = document.querySelectorAll("#cont>button");
+    let FirstNumber = "";
+    let SecondNumber = "";
+    let operators = "";
+    let IsFirstNumber = true;
+    Equal.addEventListener("click", function () {
+      input.innerText = calculate(FirstNumber, SecondNumber, operators);
+    });
+
+    button.forEach((ele) => {
+      ele.addEventListener("click", function () {
+        if (IsFirstNumber === true) {
+          FirstNumber += ele.innerText;
+          input.innerText = FirstNumber;
+        } else {
+          SecondNumber += ele.innerText;
+          input.innerText = SecondNumber;
+        }
+      });
+    });
+    operator.forEach((ele) => {
+      ele.addEventListener("click", function () {
+        IsFirstNumber = false;
+        operators = ele.innerText;
+      });
+    });
+    function calculate(FirstNumber, SecondNumber, operators) {
+      switch (operators) {
+        case "+":
+          return Number(FirstNumber) + Number(SecondNumber);
+        case "-":
+          return Number(FirstNumber) - Number(SecondNumber);
+        case "*":
+          return Number(FirstNumber) * Number(SecondNumber);
+        case "/":
+          return Number(FirstNumber) / Number(SecondNumber);
+      }
+    }
+  </script>
+</html>
