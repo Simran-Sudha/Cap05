@@ -1,7 +1,7 @@
 //Problem 2 : Check whether a string is palindrome or not.
 let num="1441";
 let str= num.toString();
-     let bag1="";
+     let bag="";
 for(let i=0;i<str.length;i++){
       bag=bag+str[i];
 }
