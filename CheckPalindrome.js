@@ -3,7 +3,7 @@ let num="1441";
 let str= num.toString();
      let bag1="";
 for(let i=0;i<str.length;i++){
-      bag1=bag1+str[i];
+      bag=bag+str[i];
 }
      let bag2="";
 for(let i=str.length-1;i>=0;i--){
